@@ -4,8 +4,20 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jruby</groupId>
   <artifactId>joda-timezones</artifactId>
-  <version>2013c</version>
+  <version>${tzdata.version}-SNAPSHOT</version>
   <packaging>jar</packaging>
+
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
+  <scm>
+    <connection>scm:git:https://github.com/jruby/joda-timezones.git</connection>
+    <developerConnection>scm:git:git@github.com:jruby/joda-timezones</developerConnection>
+    <url>https://github.com/jruby/joda-timezones</url>
+  </scm>
 
   <dependencies>
     <dependency>
@@ -18,9 +30,10 @@
   </dependencies>
 
   <properties>
+    <tzdata.version>2013d</tzdata.version>
     <tzdata.ftpserver>ftp.iana.org</tzdata.ftpserver>
     <tzdata.ftp.dir>/tz/releases</tzdata.ftp.dir>
-    <tzdata.tar.gz>${project.build.directory}/tzdata-${project.version}.tar.gz</tzdata.tar.gz>
+    <tzdata.tar.gz>${project.build.directory}/tzdata-${tzdata.version}.tar.gz</tzdata.tar.gz>
   </properties>
   <build>
     <plugins>
@@ -37,7 +50,7 @@
             </goals>
             <configuration>
               <url>ftp://anonymous:jruby%40jruby.org@${tzdata.ftpserver}</url>
-              <fromFile>${tzdata.ftp.dir}/tzdata${project.version}.tar.gz</fromFile>
+              <fromFile>${tzdata.ftp.dir}/tzdata${tzdata.version}.tar.gz</fromFile>
               <toFile>${tzdata.tar.gz}</toFile>
             </configuration>
           </execution>
