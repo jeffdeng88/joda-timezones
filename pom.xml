@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jruby</groupId>
   <artifactId>joda-timezones</artifactId>
-  <version>2013d</version>
+  <version>2013e-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <parent>
